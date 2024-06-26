@@ -6,19 +6,23 @@ addEventListener("fetch", (event) => {
 const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
-  // production
-  "docker.zvcs.net": dockerHub,
-  "quay.zvcs.net": "https://quay.io",
-  "gcr.zvcs.net": "https://gcr.io",
-  "k8s-gcr.zvcs.net": "https://k8s.gcr.io",
-  "k8s.zvcs.net": "https://registry.k8s.io",
-  "ghcr.zvcs.net": "https://ghcr.io",
-  "cloudsmith.zvcs.net": "https://docker.cloudsmith.io",
-  "ecr.zvcs.net": "https://public.ecr.aws",
-
-  // staging
-  "docker-staging.zvcs.net": dockerHub,
+  "${workername}.${username}.workers.dev/": "https://registry-1.docker.io",
 };
+
+// const routes = {
+//   // production
+//   "docker.zvcs.net": dockerHub,
+//   "quay.zvcs.net": "https://quay.io",
+//   "gcr.zvcs.net": "https://gcr.io",
+//   "k8s-gcr.zvcs.net": "https://k8s.gcr.io",
+//   "k8s.zvcs.net": "https://registry.k8s.io",
+//   "ghcr.zvcs.net": "https://ghcr.io",
+//   "cloudsmith.zvcs.net": "https://docker.cloudsmith.io",
+//   "ecr.zvcs.net": "https://public.ecr.aws",
+
+//   // staging
+//   "docker-staging.zvcs.net": dockerHub,
+// };
 
 function routeByHosts(host) {
   if (host in routes) {
